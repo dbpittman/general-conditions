@@ -15,7 +15,7 @@ This repository applies the same architecture to AI agent workflows.
 ## Structure
 
 ```
-construction-model/
+general-conditions/
 ├── INDEX.md                        ← Start here. The agent reads this first.
 ├── GENERAL_CONDITIONS/             ← Universal rules. Apply to every project.
 │   ├── GC-01-GENERAL_PROVISIONS.md
