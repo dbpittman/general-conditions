@@ -8,7 +8,7 @@ Every time you start a project with an AI agent, you start from a blank slate. Y
 
 ## The Solution
 
-Construction solved this problem decades ago with standard form contracts. The CCDC 2, AIA A201, and similar documents provide universal general conditions that govern every project. Project-specific details are layered on top.
+Construction solved this problem decades ago with standard form contracts. These standard form contracts and similar documents provide universal general conditions that govern every project. Project-specific details are layered on top.
 
 This repository applies the same architecture to AI agent workflows.
 
@@ -66,11 +66,11 @@ That's the point. They are the stable foundation. Everything project-specific go
 
 ## Origin
 
-This framework maps the CCDC 2 – 2020 Stipulated Price Contract (the Canadian standard construction contract) to AI agent software development workflows. The construction industry has centuries of methodology for translating owner intent into built product through progressive specification, formal clarification, quality gates, and change management. The AI industry is rebuilding this from scratch. It doesn't need to.
+This framework maps a standard construction contract to AI agent software development workflows. The construction industry has centuries of methodology for translating owner intent into built product through progressive specification, formal clarification, quality gates, and change management. The AI industry is rebuilding this from scratch. It doesn't need to.
 
 ## License
 
-MIT
+CC-BY-NC-ND-4.0
 
 ## Author
 
