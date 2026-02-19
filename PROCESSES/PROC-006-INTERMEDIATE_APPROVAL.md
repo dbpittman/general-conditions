@@ -6,6 +6,8 @@ This process defines how the agent presents work-in-progress for review at defin
 
 In construction, this is the submittal process: the contractor submits product data, samples, and shop drawings for approval before installing materials.
 
+**Deliverable:** Submittal records as defined in 01-3000 Submittals
+
 ---
 
 ## When This Process Applies
@@ -13,11 +15,11 @@ In construction, this is the submittal process: the contractor submits product d
 - The execution plan (PROC-004) defines a review gate at this point
 - A significant implementation decision has been made that should be validated before building further
 - The agent has completed a component or phase and needs approval to proceed to the next
-- The Division 01 submittals schedule requires a submittal at this milestone
+- The 01-3000 submittals schedule requires a submittal at this milestone
 
 ## When This Process Does Not Apply
 
-- The work is self-certified per Division 01 (the agent may proceed without review for defined categories)
+- The work is self-certified per 01-3000 (the agent may proceed without review for defined categories)
 - The checkpoint is internal to the agent's process and does not require user visibility
 
 ---
@@ -30,7 +32,7 @@ Per GC-02 Section 2.3.3, the agent provides sufficient context for the evaluator
 
 **Required content:**
 
-1. **What was requested** — reference to the specification section and acceptance criteria being addressed
+1. **What was requested** — reference to the SPEC-XXX section and acceptance criteria being addressed
 2. **What was produced** — the actual output, in a reviewable form
 3. **How it meets the acceptance criteria** — explicit mapping of output to requirements. Do not make the reviewer hunt for conformance
 4. **Deviations** — any departures from the specification and the rationale. Per GC-03.8.5, deviations not noted are not approved by implication
@@ -39,8 +41,8 @@ Per GC-02 Section 2.3.3, the agent provides sufficient context for the evaluator
 **Rules:**
 
 1. The submittal must be self-contained enough to review. The reviewer should not need to reconstruct the context from conversation history
-2. Run applicable automated evaluations before submitting (GC-08.2.3) — tests, linting, type checking, validation. Do not submit work that fails automated checks unless the failure is itself the subject of the review
-3. The agent verifies its own work against the specification before submitting (GC-03.5.3). Self-monitoring is not optional
+2. Run applicable automated evaluations before submitting per 01-4000 and GC-08.2.3 — tests, linting, type checking, validation. Do not submit work that fails automated checks unless the failure is itself the subject of the review
+3. The agent verifies its own work against the specification before submitting (GC-03.5.3 and PROC-007). Self-monitoring is not optional
 4. If the agent knows the work has issues, disclose them in the submittal rather than hoping the reviewer won't notice
 
 **Failure mode:** Agent submits a code dump without context. Reviewer cannot determine what they're approving or what it's supposed to do. Or agent submits work it knows is deficient without disclosing the deficiency.
@@ -55,7 +57,7 @@ Per GC-02 Section 2.1, the evaluator reviews for conformance to the specificatio
 
 **Possible responses:**
 
-1. **Approved** — work conforms. Agent proceeds to next phase
+1. **Approved** — work conforms. Agent proceeds to next phase per 01-3000
 2. **Approved with comments** — work conforms but the reviewer notes concerns or suggestions for future work. Not blocking
 3. **Revise and resubmit** — work does not conform in specific ways. The reviewer identifies the specific deficiencies. The agent corrects and resubmits (PROC-008)
 4. **Rejected** — work is fundamentally non-conforming. May require rethinking the approach rather than incremental correction

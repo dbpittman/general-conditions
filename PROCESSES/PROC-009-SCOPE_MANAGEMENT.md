@@ -6,14 +6,16 @@ This process defines how changes to baselined specifications are handled during 
 
 In construction, this distinguishes Change Orders (agreed changes) from Change Directives (directed changes). Different types of change require different processes.
 
+**Deliverable:** Amendments to SPEC-XXX files and Division 01 documents (01-3000, 01-5000, 01-6000 as affected)
+
 ---
 
 ## When This Process Applies
 
-- The user requests a change to a baselined specification
+- The user requests a change to a baselined SPEC-XXX
 - The agent discovers that a baselined specification needs revision
 - Work already completed must be modified due to new information
-- The approach proposal (PROC-002) structure needs to change
+- The approach proposal structure (reflected in 01-3000) needs to change
 
 ## When This Process Does Not Apply
 
@@ -31,22 +33,22 @@ The hardest part of scope management is recognizing that a change has occurred.
 
 **Indicators that a user statement is a scope change, not a clarification:**
 
-1. It adds a requirement not in the specification
-2. It removes or modifies a requirement that is in the specification
+1. It adds a requirement not in the SPEC-XXX
+2. It removes or modifies a requirement that is in the SPEC-XXX
 3. It changes acceptance criteria
-4. It introduces a new component or eliminates a planned one
-5. It changes the priority, sequence, or dependencies between components
+4. It introduces a new component or eliminates a planned one (affects 01-3000)
+5. It changes the priority, sequence, or dependencies between components (affects 01-3000)
 
 **Indicators that a user statement is a clarification, not a scope change:**
 
-1. It resolves ambiguity in the existing specification
+1. It resolves ambiguity in the existing SPEC-XXX
 2. It provides information the specification assumed but didn't state
-3. The specification can be read to include the user's intent without modification
+3. The SPEC-XXX can be read to include the user's intent without modification
 
 **Rules:**
 
 1. When uncertain, treat it as a scope change. The cost of over-documenting a change is low. The cost of silently absorbing a scope change is high
-2. The agent must name the change. "That would be a change to Section 3.2 of the specification, which currently requires X. You're asking for Y instead. Let me assess the impact." This is not bureaucracy — it is the mechanism that prevents scope creep
+2. The agent must name the change. "That would be a change to SPEC-001 Section 3, which currently requires X. You're asking for Y instead. Let me assess the impact." This is not bureaucracy — it is the mechanism that prevents scope creep
 
 **Failure mode:** Agent absorbs scope changes silently, leading to work that doesn't match any documented specification. Or agent treats every user comment as a scope change, frustrating the user.
 
@@ -82,10 +84,10 @@ The hardest part of scope management is recognizing that a change has occurred.
 
 Per GC-06 Section 6.2.2:
 
-1. **Description** — what is being changed, referencing the specific specification section
+1. **Description** — what is being changed, referencing the specific SPEC-XXX section
 2. **Impact on completed work** — does anything already built need to be modified or discarded?
-3. **Impact on remaining work** — does this change the sequence, dependencies, or complexity of upcoming components?
-4. **Impact on the approach proposal** — does the structural design (PROC-002) need revision?
+3. **Impact on remaining work** — does this change the sequence, dependencies, or complexity of upcoming components? (affects 01-3000)
+4. **Impact on the approach** — does the structural design need revision?
 5. **Options** — if there are multiple ways to implement the change, present them with tradeoffs
 
 **Rules:**
@@ -102,31 +104,33 @@ Per GC-06 Section 6.2.2:
 
 The user reviews the impact assessment and either:
 
-1. **Approves** — the change is authorized. The agent updates the specification and execution plan
+1. **Approves** — the change is authorized. The agent updates the specifications and Division 01 documents
 2. **Modifies** — the user adjusts the change based on the impact assessment
 3. **Withdraws** — the user decides the change isn't worth the impact. The original specification stands
 4. **Converts to directive** — the user decides to proceed without full assessment
 
 ---
 
-## Step 5: Execute the Change
+## Step 5: Update Documents
 
 **Actor: Agent**
 
-1. Update the baselined specification to reflect the change
-2. Update the execution plan if affected
-3. Update the approach proposal if the structural design changed
-4. Modify completed work if the change requires it
-5. Document the change: what changed, why, what was affected, and who authorized it
+1. Amend the affected SPEC-XXX file(s) — the updated specification becomes the new baseline
+2. Update 01-3000 if the component sequence, review gates, or submittal schedule changed
+3. Update 01-5000 if work restrictions changed
+4. Update 01-6000 if technology stack or practices changed
+5. Update DRAWINGS/ if reference material is affected
+6. Record the change in 01-7000 Closeout scope change history
+7. Modify completed work if the change requires it
 
 **Rules:**
 
-1. The updated specification becomes the new baseline. Future work is evaluated against the updated spec, not the original
-2. Changes to the approach proposal are structural changes — they should be reviewed per PROC-002 Phase 6
+1. Future work is evaluated against the updated specification, not the original
+2. Changes to 01-3000 (structural changes) should be reviewed per PROC-002 Phase 9
 
 ---
 
-## Step 6: Execute the Change (Change Directive)
+## Step 6: Execute (Change Directive)
 
 **Actor: Agent**
 
@@ -135,10 +139,10 @@ Per GC-06 Section 6.3:
 1. Proceed with the change immediately
 2. Concurrently assess the impact
 3. Report the impact assessment at the earliest opportunity
-4. The directive becomes a Change Order when the assessment is acknowledged
+4. Update documents per Step 5 when assessment is complete
+5. The directive becomes a Change Order when the assessment is acknowledged
 
 **Rules:**
 
 1. The agent complies with the directive even if it suspects the impact is significant. The user has accepted this risk
-2. The concurrent assessment should identify any completed work that may need revision and any downstream components that are affected
-3. If the impact assessment reveals that the directive has broken something critical, notify the user immediately — do not wait for the next scheduled report
+2. If the impact assessment reveals that the directive has broken something critical, notify the user immediately

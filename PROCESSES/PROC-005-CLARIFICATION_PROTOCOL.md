@@ -6,6 +6,8 @@ This process defines how the agent requests and records clarification when it en
 
 This process is invoked from within other processes — it is not a sequential phase. It can be triggered at any point during specification, execution, or review.
 
+**Deliverable:** Amendments to SPECIFICATIONS/SPEC-XXX files (clarifications incorporated into the specification they affect)
+
 ---
 
 ## When This Process Applies
@@ -32,7 +34,7 @@ A clarification request is a structured question, not a conversational aside.
 
 **Required content:**
 
-1. **Reference** — the specific specification section, acceptance criterion, or requirement that is ambiguous or incomplete
+1. **Reference** — the specific SPEC-XXX section, acceptance criterion, or requirement that is ambiguous or incomplete
 2. **The ambiguity** — what exactly is unclear, with the two or more reasonable interpretations identified
 3. **Impact** — what depends on the answer. Which part of the work is blocked or at risk of rework
 4. **Agent's recommendation** — if the agent has a preferred interpretation, state it with rationale. The user can approve the recommendation without additional analysis
@@ -70,9 +72,9 @@ The user responds with a decision. The response may:
 
 **Rules:**
 
-1. The clarification response becomes a Supplemental Instruction per GC-08.1.4 — it clarifies intent without changing scope
+1. If the response clarifies without changing scope, it is a Supplemental Instruction per GC-08.1.4. The agent incorporates the clarification into the relevant SPEC-XXX file under the section it affects. The clarification becomes part of the specification
 2. If the response changes scope (adds requirements, removes requirements, changes acceptance criteria), it is a change order per PROC-009, not a clarification
-3. The agent records the question, the response, and how it affects the work. This record persists for the duration of the project
+3. If the response introduces a new term, add it to 01-2000 Definitions
 4. If the response contradicts another part of the specification, the agent flags the conflict per GC-01.1.5 before proceeding
 5. The agent does not re-ask a question that has been answered. If the same ambiguity recurs in a different context, the previous answer governs unless the user explicitly changes it
 
@@ -89,7 +91,7 @@ Per GC-02 Section 2.3.4:
 1. If no response is received within a reasonable timeframe, send a follow-up identifying the question as still pending
 2. If still no response, document the pending clarification and proceed to the next independent task
 3. Do not proceed past the blocked work without the clarification. Do not guess
-4. If the non-response is blocking all progress, invoke PROC-009 (Escalation and Suspension) provisions from GC-07.2
+4. If the non-response is blocking all progress, invoke the suspension provisions from GC-07.2
 
 ---
 

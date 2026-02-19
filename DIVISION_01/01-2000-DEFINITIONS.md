@@ -1,8 +1,8 @@
 # 01-2000 — Project Definitions
 
-> **This is a template. Copy and complete for each project.**
+> **Produced by:** Accumulated across all processes. Updated whenever a term is defined or clarified.
 >
-> Define any project-specific terms here. These supplement the standard definitions in the General Conditions. If a term defined here conflicts with a General Conditions definition, this project definition governs for this project only.
+> **This is a living document. The agent adds terms as they are established during PROC-001 through PROC-012.**
 
 ## Standard Terms (Reference)
 
@@ -19,10 +19,8 @@ The following terms are defined in the General Conditions and apply to all proje
 
 ## Project-Specific Definitions
 
-<!-- Add terms specific to this project. Example: -->
-<!-- **Widget** — The React component responsible for user input on the dashboard -->
-<!-- **Pipeline** — The CI/CD workflow defined in .github/workflows/ -->
+<!-- Add terms as they emerge during the project. Terms from PROC-001 (intent capture) and PROC-003 (detailed specification) are the primary sources. Clarifications from PROC-005 may also introduce terms. -->
 
-| Term | Definition |
-|------|-----------|
-| | |
+| Term | Definition | Introduced In |
+|------|-----------|--------------|
+| | | PROC-___ |

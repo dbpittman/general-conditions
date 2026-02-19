@@ -6,11 +6,17 @@ This process defines how the agent proposes the broad structure of a solution af
 
 This is not a detailed specification. It is the structural proposal the user approves before the agent invests in detail. In construction, this is conceptual design: the floor plan and elevation, not the wiring diagram.
 
+**Deliverables:**
+- 01-3000 Submittals (completed — defines the component sequence and review gates)
+- 01-5000 Work Restrictions (started — project-level restrictions identified)
+- 01-6000 Materials and Methods (started — technology stack selected)
+- DRAWINGS/ (architecture diagrams, workflow diagrams, reference material as needed)
+
 ---
 
 ## When This Process Applies
 
-- Intent capture (PROC-001) is complete or the user has arrived with a defined approach
+- 01-1000 Project Overview is approved (PROC-001 complete)
 - The selected approach has multiple components that must be coordinated
 - The agent needs user agreement on structure before elaborating any single component
 
@@ -24,7 +30,7 @@ This is not a detailed specification. It is the structural proposal the user app
 
 ## Prerequisites
 
-From PROC-001 or equivalent:
+From 01-1000 (produced by PROC-001):
 
 1. A defined goal
 2. Hard constraints
@@ -43,7 +49,7 @@ Decompose the selected approach into the major pieces of work that must exist fo
 **Rules:**
 
 1. Components are defined by what they do, not how they are built. "Authentication system" not "JWT middleware with Redis session store"
-2. Every component must trace to something in the user's stated goal. If a component exists only because the architecture needs it (infrastructure, tooling, integration layers), label it as supporting rather than primary
+2. Every component must trace to something in the user's stated goal (01-1000 Section 2). If a component exists only because the architecture needs it (infrastructure, tooling, integration layers), label it as supporting rather than primary
 3. Do not decompose below the level where the user can make structural decisions. If a component has no alternatives and no decisions, it doesn't need to be called out separately
 4. Identify components the user may not have anticipated — integration layers, data migrations, configuration management, monitoring. These are often where projects fail
 
@@ -105,7 +111,51 @@ Based on components and dependencies, propose the order in which work should pro
 
 ---
 
-## Phase 5: Present the Proposal
+## Phase 5: Identify Work Restrictions
+
+**Actor: Agent**
+
+Based on the structural design, identify project-level restrictions:
+
+1. What existing systems, data, or code must not be touched
+2. What operations require user approval before execution (per GC-09.1)
+3. What dependencies are prohibited (from 01-1000 hard constraints)
+4. What approaches are prohibited
+5. Environment boundaries and access restrictions
+
+This becomes the initial content of 01-5000.
+
+---
+
+## Phase 6: Define the Technology Stack
+
+**Actor: Agent**
+
+Based on the selected approach (01-1000 Section 7) and the component structure, define:
+
+1. Languages, frameworks, and platforms
+2. Pre-approved dependencies
+3. The approval process for dependencies not on the pre-approved list
+
+This becomes the technology stack section of 01-6000. Development practices are completed during PROC-004.
+
+---
+
+## Phase 7: Produce Drawings
+
+**Actor: Agent**
+
+If the project benefits from visual or concrete reference material, produce it now:
+
+1. Architecture diagrams showing component relationships
+2. Workflow diagrams showing data or process flow
+3. Reference examples showing expected formats, outputs, or behaviors
+
+Drawings go in DRAWINGS/ and are named per the convention defined there. Per the document hierarchy, specifications govern over drawings when they conflict.
+
+---
+
+## Phase 8: Present the Proposal
 
 **Actor: Agent**
 
@@ -126,22 +176,22 @@ Based on components and dependencies, propose the order in which work should pro
 1. The proposal is a structural commitment, not a schedule. Do not estimate durations at this stage — the agent doesn't know enough yet. Duration estimates come during detailed specification (PROC-003)
 2. Present the proposal as a recommendation, not a set of options. The agent has done the analysis; it should have a point of view on the best structure. If genuinely indifferent between structures, explain why
 3. Flag any assumptions the proposal depends on that haven't been validated
-4. Flag anything from intent capture's open questions (PROC-001 Phase 9, item 5) that the proposal depends on resolving
+4. Flag anything from 01-1000 Section 14 (open questions) that the proposal depends on resolving
 
 **Failure mode:** Agent presents a vague plan that commits to nothing ("we'll figure out the database layer later") or an over-specified plan that belongs in PROC-003.
 
 ---
 
-## Phase 6: User Review
+## Phase 9: User Review
 
 **Actor: User**
 
 The user reviews the proposal and either:
 
-1. **Approves** — the agent proceeds to detailed specification (PROC-003) for the first component in sequence
+1. **Approves** — the agent proceeds to PROC-003 for the first component in sequence
 2. **Modifies** — the user changes the structure (reorders components, adds/removes components, changes scope). The agent revises the proposal and resubmits
 3. **Rejects** — the structural approach is wrong. This may loop back to PROC-001 if the rejection is fundamental, or it may require a new proposal if the approach is sound but the structure is not
-4. **Asks questions** — the user needs more information before deciding. The agent researches and answers. This is not a clarification request (PROC-005) — it is part of the approval process
+4. **Asks questions** — the user needs more information before deciding. The agent researches and answers
 
 **Rules:**
 
@@ -149,12 +199,23 @@ The user reviews the proposal and either:
 2. The proposal is a living document. It will change as detailed specification reveals complexity. But changes to the approved structure are scope changes (PROC-009), not silent revisions
 3. The user is approving structure, not implementation details. The agent should not ask the user to approve decisions the user is not qualified to evaluate
 
-**Failure mode:** Agent treats the proposal as final and resists structural changes discovered during detailed specification. Or agent modifies the structure without surfacing the change.
+---
+
+## Phase 10: Complete Documents
+
+**Actor: Agent**
+
+Upon approval, the agent completes:
+
+1. **01-3000 Submittals** — the component sequence, review gates, submittal format, and review timeframes
+2. **01-5000 Work Restrictions** — project-level restrictions identified in Phase 5
+3. **01-6000 Materials and Methods** — technology stack from Phase 6 (development practices completed during PROC-004)
+4. **DRAWINGS/** — any reference material produced in Phase 7
+
+The completed documents are submitted for user approval alongside the proposal.
 
 ---
 
 ## Transition to PROC-003
 
-Upon approval, the output of this process becomes the input to Detailed Specification (PROC-003). The agent takes the first component in the approved sequence and elaborates it into a specification with acceptance criteria.
-
-The proposal itself should be preserved as a reference document throughout the project — it is the structural baseline against which changes are measured.
+Upon approval, the agent takes the first component in the approved sequence and begins PROC-003 (Detailed Specification), producing a SPEC-XXX file for that component.

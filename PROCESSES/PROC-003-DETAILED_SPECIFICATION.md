@@ -6,11 +6,13 @@ This process defines how the agent elaborates an approved approach proposal into
 
 This is iterative. The agent proposes specifics, the user confirms or redirects, and the specification becomes progressively more detailed. In construction, this is design development: the architect and owner refine the approved concept into specific systems, materials, and details.
 
+**Deliverable:** SPECIFICATIONS/SPEC-XXX-[component_name].md (one per component)
+
 ---
 
 ## When This Process Applies
 
-- The approach proposal (PROC-002) is approved
+- 01-3000 Submittals is approved (PROC-002 complete)
 - A component is next in the approved sequence
 - The component has design decisions that require user input before building
 
@@ -26,9 +28,11 @@ This is iterative. The agent proposes specifics, the user confirms or redirects,
 
 From PROC-002:
 
-1. Approved approach proposal with component list and sequence
-2. Component dependencies mapped
-3. Risk assessment for the component being specified
+1. 01-3000 with approved component sequence and review gates
+2. 01-6000 with approved technology stack
+3. 01-5000 with project-level work restrictions
+4. DRAWINGS/ with architecture and reference material
+5. Component dependencies mapped
 
 ---
 
@@ -36,7 +40,7 @@ From PROC-002:
 
 **Actor: Agent**
 
-Take one component from the approved sequence and define what it must do at a level sufficient to build and test.
+Take one component from the approved sequence (01-3000) and define what it must do at a level sufficient to build and test.
 
 **Rules:**
 
@@ -71,24 +75,25 @@ Take one component from the approved sequence and define what it must do at a le
 
 **Actor: Agent**
 
-Produce a specification document for the component.
+Produce a SPECIFICATIONS/SPEC-XXX-[component_name].md file.
 
 **Required content:**
 
 1. **Scope** — what this component does and its boundaries
-2. **Acceptance criteria** — specific, testable conditions
+2. **Acceptance criteria** — specific, testable conditions (pass/fail)
 3. **Interfaces** — connections to other components and external systems
-4. **Constraints** — limits that apply to this component specifically
+4. **Constraints** — limits that apply to this component (references 01-5000 and GC-09)
 5. **Dependencies** — what must exist before this component can be built
 6. **Assumptions** — what the specification assumes to be true
-7. **Open items** — questions that must be resolved before or during execution
+7. **Design decisions** — agent decisions (documented) and user decisions (recorded)
+8. **Open items** — questions that must be resolved before or during execution
 
 **Rules:**
 
-1. The specification must be self-contained. An agent (or a different agent) should be able to build the component from this document plus the General Conditions without requiring additional context
-2. Use the project's SPECIFICATIONS/ directory format
-3. Acceptance criteria are pass/fail. If a criterion requires judgment, it is not specific enough
-4. Constraints include both technical constraints and any relevant restrictions from Division 01
+1. The specification must be self-contained. An agent (or a different agent) should be able to build the component from this document plus the General Conditions and Division 01 without requiring conversation history
+2. Acceptance criteria are pass/fail. If a criterion requires judgment, it is not specific enough
+3. Constraints include both technical constraints and any relevant restrictions from 01-5000
+4. Add any project-specific terms to 01-2000 Definitions
 
 **Failure mode:** Specification requires reading the entire conversation history to understand. Or specification is a requirements list without enough context to build against.
 
@@ -100,7 +105,7 @@ Produce a specification document for the component.
 
 The user reviews the draft specification and either:
 
-1. **Approves** — the specification is baselined and the agent may proceed to execution (PROC-004)
+1. **Approves** — the specification is baselined and the agent may proceed to PROC-004 (Execution Instructions)
 2. **Modifies** — the user changes requirements, acceptance criteria, or scope. The agent revises and resubmits
 3. **Asks questions** — the user needs clarification on what a criterion means or why a decision was made
 4. **Identifies missing requirements** — the user realizes something is needed that the specification doesn't cover. This is a specification addition, not a change order (the specification isn't baselined yet)
@@ -108,14 +113,16 @@ The user reviews the draft specification and either:
 **Rules:**
 
 1. Approval baselines the specification. Changes after this point are change orders (PROC-009)
-2. If the user modifies scope in a way that affects the approach proposal (adds components, changes dependencies, alters sequence), the approach proposal must be updated per PROC-009
+2. If the user modifies scope in a way that affects the approach proposal (adds components, changes dependencies, alters sequence), 01-3000 must be updated per PROC-009
 3. The user is approving what will be built and how it will be tested. The agent owns how it will be built
+
+**Failure mode:** Agent treats the specification as final and resists changes discovered during PROC-004. Or agent modifies the baselined specification without surfacing the change.
 
 ---
 
 ## Phase 5: Repeat for Next Component
 
-The agent takes the next component in the approved sequence and repeats from Phase 1. Components may be specified in parallel if they are independent.
+The agent takes the next component in the approved sequence (01-3000) and repeats from Phase 1. Components may be specified in parallel if they are independent.
 
 Detailed specification of later components may reveal that earlier specifications need revision. This is normal. Revisions to baselined specifications are change orders (PROC-009).
 
@@ -123,4 +130,4 @@ Detailed specification of later components may reveal that earlier specification
 
 ## Transition to PROC-004
 
-Upon approval, the specification becomes the governing document for that component's execution. The agent produces execution instructions (PROC-004) — the detailed plan for how the specification will be implemented.
+Upon approval, the SPEC-XXX file becomes the governing document for that component's execution. The agent proceeds to PROC-004 (Execution Instructions) to plan implementation, producing the component-level entries in 01-4000 (Quality) and completing 01-6000 (development practices).

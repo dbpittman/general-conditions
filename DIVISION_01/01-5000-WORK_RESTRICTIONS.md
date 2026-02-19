@@ -1,12 +1,12 @@
 # 01-5000 — Work Restrictions
 
-> **This is a template. Copy and complete for each project.**
+> **Produced by:** PROC-002 (Approach Proposal) for project-level restrictions, refined by PROC-004 (Execution Instructions) per component
 >
-> This section defines what the Agent must not do. It supplements the general protections in GC-09 with project-specific restrictions.
+> **This is a template. The agent completes this document to define boundaries. It supplements GC-09 with project-specific restrictions.**
 
 ## Off-Limits Areas
 
-<!-- What files, systems, databases, or services must the Agent not touch? -->
+<!-- What files, systems, databases, or services must the Agent not touch? Identified during PROC-002 when mapping dependencies and boundaries. -->
 
 - Do not modify:
 - Do not access:
@@ -14,9 +14,9 @@
 
 ## Restricted Operations
 
-<!-- What operations require explicit approval before execution? -->
+<!-- What operations require explicit approval before execution? Per GC-09 Section 9.1. Identified during PROC-004 when planning implementation steps that touch existing systems. -->
 
-The following operations require User approval per GC-09 Section 9.1:
+The following operations require User approval:
 
 - [ ] Database schema changes
 - [ ] Production deployments
@@ -28,19 +28,19 @@ The following operations require User approval per GC-09 Section 9.1:
 
 ## Prohibited Dependencies
 
-<!-- Are there any libraries, frameworks, or services that must not be used? -->
+<!-- Are there any libraries, frameworks, or services that must not be used? From PROC-001 hard constraints or PROC-002 approach decisions. -->
 
 -
 
 ## Prohibited Approaches
 
-<!-- Are there any technical approaches that are not acceptable? -->
+<!-- Are there any technical approaches that are not acceptable? From PROC-001 hard constraints. -->
 
 -
 
 ## Data Handling Restrictions
 
-<!-- What are the rules for handling data in this project? -->
+<!-- What are the rules for handling data in this project? Per GC-09.2 and GC-10.2. -->
 
 - **Sensitive data:**
 - **User data:**
@@ -49,7 +49,7 @@ The following operations require User approval per GC-09 Section 9.1:
 
 ## Environment Restrictions
 
-<!-- What are the boundaries of the execution environment? -->
+<!-- What are the boundaries of the execution environment? Identified during PROC-004. -->
 
 - **Accessible environments:**
 - **Production access:** Yes / No / Read-only

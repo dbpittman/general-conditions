@@ -1,12 +1,16 @@
 # 01-4000 — Quality Requirements
 
-> **This is a template. Copy and complete for each project.**
+> **Produced by:** PROC-004 (Execution Instructions), refined per component
 >
-> This section defines how quality is measured and verified for this project. It implements GC-02 (review and inspection) and GC-08 Section 8.2 (automated evaluation).
+> **Used by:** PROC-007 (Quality Verification) as the standard for evaluation
+>
+> **This is a template. The agent completes this document during PROC-004. It defines how quality is measured and verified.**
+>
+> Implements GC-02 (review and inspection) and GC-08 Section 8.2 (automated evaluation).
 
 ## Acceptance Criteria
 
-<!-- What must be true for work to be accepted? Be specific. -->
+<!-- Global acceptance criteria that apply across all components. Component-specific criteria live in each SPEC-XXX file produced by PROC-003. -->
 
 ### Functional Requirements
 - [ ]
@@ -19,7 +23,7 @@
 
 ## Testing Requirements
 
-<!-- What testing is required? -->
+<!-- What testing is required? Defines the standard PROC-007 evaluates against. -->
 
 | Type | Required | Standard |
 |------|----------|----------|
@@ -32,7 +36,7 @@
 
 ## Automated Evaluation
 
-<!-- What automated checks must pass before submission? -->
+<!-- What automated checks must pass before submission? Per GC-08.2.3, the Agent runs these before every submittal (PROC-006). -->
 
 - [ ] Linting passes (tool: ___)
 - [ ] Type checking passes (tool: ___)
@@ -40,9 +44,11 @@
 - [ ] Build succeeds
 - [ ] No known vulnerabilities in dependencies (tool: ___)
 
+**Checks marked as acceptance criteria are dispositive per GC-08.2.2. All others are advisory.**
+
 ## Coding Standards
 
-<!-- What standards apply? Reference external documents if applicable. -->
+<!-- What standards apply? Referenced by PROC-007 during quality verification. -->
 
 - Style guide:
 - Naming conventions:
@@ -51,12 +57,12 @@
 
 ## Review Criteria
 
-<!-- What does the Evaluator specifically look for? -->
+<!-- What does the Evaluator specifically look for during PROC-006 (Intermediate Approval)? -->
 
 The Evaluator reviews for:
 
-1. Conformance to the Specification
-2. Conformance to coding standards
-3. Appropriate test coverage
+1. Conformance to the component specification (SPEC-XXX)
+2. Conformance to coding standards above
+3. Appropriate test coverage per testing requirements above
 4. Documentation completeness
 5. Security best practices per GC-09

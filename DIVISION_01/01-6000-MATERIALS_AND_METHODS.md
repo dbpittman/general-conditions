@@ -1,12 +1,14 @@
 # 01-6000 — Materials and Methods
 
-> **This is a template. Copy and complete for each project.**
+> **Produced by:** PROC-002 (Approach Proposal) for technology stack selection, completed by PROC-004 (Execution Instructions) for development practices
 >
-> This section defines the approved technology stack, dependencies, and development practices. It implements GC-03 Section 3.7 (code quality and dependencies) for this specific project.
+> **This is a template. The agent completes the technology stack during PROC-002 (when the approach determines the tools) and the development practices during PROC-004 (when implementation planning determines the workflow).**
+>
+> Implements GC-03 Section 3.7 (code quality and dependencies).
 
 ## Technology Stack
 
-<!-- What languages, frameworks, and platforms are approved? -->
+<!-- Selected during PROC-002 as part of the approach. From 01-1000 Section 7 (Selected Approach). -->
 
 | Layer | Technology | Version | Notes |
 |-------|-----------|---------|-------|
@@ -18,7 +20,7 @@
 
 ## Approved Dependencies
 
-<!-- List approved third-party dependencies, or specify the approval process. -->
+<!-- Evaluated during PROC-002 (approach research) and PROC-003 (component specification). Per GC-03.7.2. -->
 
 **Pre-approved:**
 -
@@ -29,7 +31,7 @@
 
 ## Development Practices
 
-<!-- How should the work be structured? -->
+<!-- Defined during PROC-004 when the agent plans implementation. -->
 
 - **Branching strategy:**
 - **Commit practices:**
@@ -38,10 +40,10 @@
 
 ## File Structure
 
-<!-- Is there a required project structure? -->
+<!-- Defined during PROC-004. The expected project structure. -->
 
 ```
-<!-- Define the expected directory structure if applicable -->
+<!-- Define the expected directory structure -->
 ```
 
 ## Naming Conventions
@@ -52,7 +54,7 @@
 
 ## Configuration Management
 
-<!-- How is configuration handled? -->
+<!-- Defined during PROC-004. How configuration is handled. -->
 
 - **Environment variables:**
 - **Configuration files:**
