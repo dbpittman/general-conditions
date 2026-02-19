@@ -1,4 +1,4 @@
-# GC-09 — Protection of Systems, Data, and Persons
+# GC-09 — Protection
 
 ## 9.1 Protection of Existing Systems and Data
 

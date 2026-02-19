@@ -30,19 +30,19 @@ These are your standing operating procedures. They apply to all work.
 
 | File | Subject | When to Reference |
 |------|---------|-------------------|
-| [GC-01-GENERAL_PROVISIONS.md](GENERAL_CONDITIONS/GC-01-GENERAL_PROVISIONS.md) | Document priority, governing constraints, assignment, rights | At project start. When documents conflict. When handing off work. |
-| [GC-02-ADMINISTRATION.md](GENERAL_CONDITIONS/GC-02-ADMINISTRATION.md) | Evaluator authority, review process, defective work | When submitting work for review. When output is rejected. |
-| [GC-03-EXECUTION.md](GENERAL_CONDITIONS/GC-03-EXECUTION.md) | Agent autonomy, scheduling, subcontractors, shop drawings, code quality | During execution. When planning approach. When using tools or sub-agents. |
-| [GC-04-ALLOWANCES.md](GENERAL_CONDITIONS/GC-04-ALLOWANCES.md) | Resource reservations, contingency | When estimating effort. When scope is partially undefined. |
-| [GC-05-PROGRESS_AND_PAYMENT.md](GENERAL_CONDITIONS/GC-05-PROGRESS_AND_PAYMENT.md) | Progress delivery, milestones, acceptance, MVP, final delivery, backlog | At every delivery milestone. When work is partially complete. |
-| [GC-06-CHANGES.md](GENERAL_CONDITIONS/GC-06-CHANGES.md) | Scope changes, directives, discovered complexity, delays | When requirements change. When unexpected issues arise. When blocked. |
-| [GC-07-DEFAULT.md](GENERAL_CONDITIONS/GC-07-DEFAULT.md) | Task abort, agent refusal, suspension | When you cannot proceed. When the user terminates work. |
-| [GC-08-DISPUTES.md](GENERAL_CONDITIONS/GC-08-DISPUTES.md) | Disagreement resolution, escalation ladder | When output is disputed. When interpretation conflicts arise. |
-| [GC-09-PROTECTION.md](GENERAL_CONDITIONS/GC-09-PROTECTION.md) | Data safety, harmful output prevention, security, technical debt | Always during execution. Before any destructive operation. |
-| [GC-10-REGULATIONS.md](GENERAL_CONDITIONS/GC-10-REGULATIONS.md) | Licensing, compliance, IP, platform policies | When incorporating dependencies. When handling data. |
-| [GC-11-RISK_MITIGATION.md](GENERAL_CONDITIONS/GC-11-RISK_MITIGATION.md) | Backups, version control, rollback, monitoring | Before destructive operations. During deployment. |
-| [GC-12-TAKEOVER.md](GENERAL_CONDITIONS/GC-12-TAKEOVER.md) | Deployment readiness, partial deployment, warranty | At project completion. When delivering work. |
-| [GC-13-LIABILITY.md](GENERAL_CONDITIONS/GC-13-LIABILITY.md) | Responsibility boundaries, acceptance finality | At project close. When defining responsibility. |
+| [GC-01-GENERAL_PROVISIONS.md](GENERAL_CONDITIONS/GC-01-GENERAL_PROVISIONS.md) | General Provisions | At project start. When documents conflict. When handing off work. |
+| [GC-02-ADMINISTRATION.md](GENERAL_CONDITIONS/GC-02-ADMINISTRATION.md) | Administration | When submitting work for review. When output is rejected. |
+| [GC-03-EXECUTION.md](GENERAL_CONDITIONS/GC-03-EXECUTION.md) | Execution | During execution. When planning approach. When using tools or sub-agents. |
+| [GC-04-ALLOWANCES.md](GENERAL_CONDITIONS/GC-04-ALLOWANCES.md) | Allowances | When estimating effort. When scope is partially undefined. |
+| [GC-05-PROGRESS_AND_DELIVERY.md](GENERAL_CONDITIONS/GC-05-PROGRESS_AND_DELIVERY.md) | Progress and Delivery | At every delivery milestone. When work is partially complete. |
+| [GC-06-CHANGES.md](GENERAL_CONDITIONS/GC-06-CHANGES.md) | Changes | When requirements change. When unexpected issues arise. When blocked. |
+| [GC-07-DEFAULT.md](GENERAL_CONDITIONS/GC-07-DEFAULT.md) | Default and Termination | When you cannot proceed. When the user terminates work. |
+| [GC-08-DISPUTES.md](GENERAL_CONDITIONS/GC-08-DISPUTES.md) | Dispute Resolution | When output is disputed. When interpretation conflicts arise. |
+| [GC-09-PROTECTION.md](GENERAL_CONDITIONS/GC-09-PROTECTION.md) | Protection | Always during execution. Before any destructive operation. |
+| [GC-10-REGULATIONS.md](GENERAL_CONDITIONS/GC-10-REGULATIONS.md) | Regulations | When incorporating dependencies. When handling data. |
+| [GC-11-RISK_MITIGATION.md](GENERAL_CONDITIONS/GC-11-RISK_MITIGATION.md) | Risk Mitigation | Before destructive operations. During deployment. |
+| [GC-12-TAKEOVER.md](GENERAL_CONDITIONS/GC-12-TAKEOVER.md) | Takeover and Warranty | At project completion. When delivering work. |
+| [GC-13-LIABILITY.md](GENERAL_CONDITIONS/GC-13-LIABILITY.md) | Liability and Acceptance | At project close. When defining responsibility. |
 
 ---
 

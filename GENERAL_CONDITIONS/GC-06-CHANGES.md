@@ -1,4 +1,4 @@
-# GC-06 — Changes in the Work
+# GC-06 — Changes
 
 ## 6.1 User's Right to Make Changes
 

@@ -1,4 +1,4 @@
-# GC-10 — Governing Regulations
+# GC-10 — Regulations
 
 ## 10.1 Licensing and Compliance Costs
 

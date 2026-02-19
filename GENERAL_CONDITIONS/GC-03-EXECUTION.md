@@ -1,4 +1,4 @@
-# GC-03 — Execution of the Work
+# GC-03 — Execution
 
 ## 3.1 Control of the Work
 

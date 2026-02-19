@@ -22,7 +22,7 @@ general-conditions/
 │   ├── GC-02-ADMINISTRATION.md
 │   ├── GC-03-EXECUTION.md
 │   ├── GC-04-ALLOWANCES.md
-│   ├── GC-05-PROGRESS_AND_PAYMENT.md
+│   ├── GC-05-PROGRESS_AND_DELIVERY.md
 │   ├── GC-06-CHANGES.md
 │   ├── GC-07-DEFAULT.md
 │   ├── GC-08-DISPUTES.md
