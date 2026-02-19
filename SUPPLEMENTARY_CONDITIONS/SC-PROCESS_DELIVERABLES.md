@@ -25,7 +25,7 @@ These Supplementary Conditions extend the General Conditions to recognize proces
 **Addition:** GC-03.4 defines the Execution Plan at the component level. The Approach Proposal is the structural predecessor — it defines the components, their dependencies, their sequence, and the review gates before any component is specified in detail.
 
 **Deliverables:**
-- 01-3000 Submittals (completed — component sequence, review gates, submittal schedule)
+- 01-3000 Submittals (started — project-level submittal schedule and component sequence)
 - 01-5000 Work Restrictions (started — project-level restrictions)
 - 01-6000 Materials and Methods (started — technology stack)
 - DRAWINGS/ (architecture diagrams, reference material as needed)
@@ -42,7 +42,9 @@ These Supplementary Conditions extend the General Conditions to recognize proces
 
 **Addition:** For each major component, the Agent produces a specification as a submittal before beginning implementation.
 
-**Deliverable:** SPECIFICATIONS/SPEC-XXX-[component_name].md (one per component)
+**Deliverables:**
+- SPECIFICATIONS/SPEC-XXX-[component_name].md (one per component)
+- 01-3000 Submittals (updated — component-level submittals added for each component as it is specified)
 
 **Review:** The User approves the specification, which baselines the document. Changes after baselining are governed by PROC-009 (Scope Management).
 

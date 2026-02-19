@@ -1,34 +1,53 @@
 # 01-3000 — Submittals
 
-> **Produced by:** PROC-002 (Approach Proposal)
+> **Produced by:** PROC-002 (Approach Proposal) establishes the project-level submittal schedule. PROC-003 (Detailed Specification) adds component-level submittals as each specification is written.
 >
-> **This is a template. The agent completes this document as part of the deliverable of PROC-002. It defines what requires review, at what points, and by whom.**
+> **This is a living document. It grows as the project is specified.**
 >
 > Implements the quality gates defined in GC-02 and the progress delivery process in GC-05.
 
-## Submittal Schedule
+## Project-Level Submittal Schedule
 
-<!-- Derived from the component sequence and review gates defined in PROC-002. One row per submittal. Not every project needs all of these. Delete rows that don't apply. -->
+<!-- Established during PROC-002. Defines the high-level project milestones and review gates. -->
 
 | Submittal | When | Reviewer | Required Before |
 |-----------|------|----------|-----------------|
 | Project Overview (01-1000) | PROC-001 complete | User | Any detailed work |
 | Approach Proposal (this + 01-6000) | PROC-002 complete | User | Component specification |
-| Component Specification (SPEC-XXX) | PROC-003 per component | User/Evaluator | Component execution |
-| Execution Plan (per component) | PROC-004 per component | User/Evaluator | Component execution |
-| | | | |
 | | | | |
 | Substantial Completion | PROC-011 | User | Closeout |
 | Final Delivery (01-7000) | PROC-012 complete | User | Project close |
 
-## Component Sequence and Gates
+## Component Sequence
 
-<!-- From PROC-002 Phase 3. Which components are built in what order, and where review gates fall. -->
+<!-- From PROC-002 Phase 3. Which components are built in what order. -->
 
-| Order | Component | Specification | Review Gate Before Proceeding |
-|-------|----------|--------------|------------------------------|
+| Order | Component | Specification | Project-Level Gate |
+|-------|----------|--------------|-------------------|
 | 1 | | SPEC-___ | Yes / No |
 | 2 | | SPEC-___ | Yes / No |
+
+## Component-Level Submittals
+
+<!-- Added by PROC-003 as each specification is written. Each component defines its own intermediate review points based on its complexity and risk. -->
+
+### SPEC-___: [Component Name]
+
+<!-- Added during PROC-003 for this component -->
+
+| Submittal | When | Reviewer | Required Before |
+|-----------|------|----------|-----------------|
+| Execution Plan | PROC-004 complete | User/Evaluator | Execution |
+| | | | |
+| Component Delivery | Execution complete | Evaluator | Next component |
+
+### SPEC-___: [Component Name]
+
+<!-- Added during PROC-003 for this component -->
+
+| Submittal | When | Reviewer | Required Before |
+|-----------|------|----------|-----------------|
+| | | | |
 
 ## Submittal Format
 

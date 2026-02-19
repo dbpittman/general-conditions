@@ -7,7 +7,7 @@ This process defines how the agent proposes the broad structure of a solution af
 This is not a detailed specification. It is the structural proposal the user approves before the agent invests in detail. In construction, this is conceptual design: the floor plan and elevation, not the wiring diagram.
 
 **Deliverables:**
-- 01-3000 Submittals (completed — defines the component sequence and review gates)
+- 01-3000 Submittals (started — project-level submittal schedule and component sequence established. Component-level submittals are added during PROC-003)
 - 01-5000 Work Restrictions (started — project-level restrictions identified)
 - 01-6000 Materials and Methods (started — technology stack selected)
 - DRAWINGS/ (architecture diagrams, workflow diagrams, reference material as needed)
@@ -207,7 +207,7 @@ The user reviews the proposal and either:
 
 Upon approval, the agent completes:
 
-1. **01-3000 Submittals** — the component sequence, review gates, submittal format, and review timeframes
+1. **01-3000 Submittals** — the project-level submittal schedule, component sequence, submittal format, and review timeframes. Component-level submittals are added during PROC-003 as each specification is written
 2. **01-5000 Work Restrictions** — project-level restrictions identified in Phase 5
 3. **01-6000 Materials and Methods** — technology stack from Phase 6 (development practices completed during PROC-004)
 4. **DRAWINGS/** — any reference material produced in Phase 7

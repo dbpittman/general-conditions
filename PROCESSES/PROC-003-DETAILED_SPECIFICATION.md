@@ -6,7 +6,9 @@ This process defines how the agent elaborates an approved approach proposal into
 
 This is iterative. The agent proposes specifics, the user confirms or redirects, and the specification becomes progressively more detailed. In construction, this is design development: the architect and owner refine the approved concept into specific systems, materials, and details.
 
-**Deliverable:** SPECIFICATIONS/SPEC-XXX-[component_name].md (one per component)
+**Deliverables:**
+- SPECIFICATIONS/SPEC-XXX-[component_name].md (one per component)
+- 01-3000 Submittals (updated — component-level submittals added for this component)
 
 ---
 
@@ -87,6 +89,7 @@ Produce a SPECIFICATIONS/SPEC-XXX-[component_name].md file.
 6. **Assumptions** — what the specification assumes to be true
 7. **Design decisions** — agent decisions (documented) and user decisions (recorded)
 8. **Open items** — questions that must be resolved before or during execution
+9. **Submittals** — intermediate review points for this component's execution. Based on the component's complexity, risk, and dependency relationships, define what the agent must submit for review and when. Add these to the component-level submittals section of 01-3000
 
 **Rules:**
 
