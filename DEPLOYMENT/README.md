@@ -1,66 +1,142 @@
 # Deployment
 
-Operational deployment artifacts for the General Conditions framework. This directory contains what you actually load into agent context windows when running the framework on a project.
+Operational deployment configuration for the General Conditions framework. This directory contains everything needed to run the framework as a multi-agent system using Claude Code.
 
-## Relationship to Full Framework
+## Architecture
 
-The General Conditions (GC-00 through GC-13) are the authoritative specification. The Processes (PROC-001 through PROC-012) define the workflow. This directory contains compressed, operational versions derived from both — optimized for context window constraints while maintaining alignment with the source documents.
+Two Claude Code instances running in separate git worktrees, communicating via a shared project directory and `queue.json` task queue. The Owner watches both via tmux/ttyd browser sessions and can interact with either agent at any time.
 
-Every directive in these files traces back to its source GC. When in doubt, the full General Conditions govern.
+```
+┌─────────────────────┐         ┌─────────────────────────┐
+│  Browser Window 1   │         │   Browser Window 2       │
+│  ttyd :8080         │         │   ttyd :8081             │
+│                     │         │                          │
+│  PM Agent           │         │   Contractor Agent       │
+│  (Claude Code)      │         │   (Claude Code)          │
+│                     │         │                          │
+│  Captures intent    │         │   Watches queue          │
+│  Queues tasks       │  queue  │   Spawns Workers         │
+│  Evaluates work ────┼── .json─┼── Produces deliverables  │
+│  Presents to Owner  │         │   Updates status         │
+│                     │         │                          │
+│  Own worktree       │  shared │   Own worktree           │
+│  Own CLAUDE.md      │  project│   Own CLAUDE.md          │
+│                     │   dir   │   .claude/agents/worker  │
+└─────────────────────┘         └─────────────────────────┘
+         │                                  │
+         └──────────┐    ┌──────────────────┘
+                    ▼    ▼
+              Shared Project Directory
+              ├── queue.json
+              ├── pm/direction/
+              ├── pm/evaluation/
+              ├── contractor/submittals/
+              ├── DIVISION_01/
+              ├── SPECIFICATIONS/
+              └── DRAWINGS/
+```
+
+### Roles
+
+| Role | Instance | Spawns | Produces | Evaluates |
+|------|----------|--------|----------|-----------|
+| Owner | Human | — | Decisions, approvals | — |
+| PM Agent | Claude Code (worktree 1) | — | Direction files, evaluation files, queue tasks | Deliverables against specs and Owner intent |
+| Contractor Agent | Claude Code (worktree 2) | Worker subagents | — (coordinates Workers) | Completeness only (not conformance) |
+| Worker Agents | Subagents of Contractor | — | Division 01 docs, SPEC-XXX files, project artifacts | Self-verification only |
+
+### Communication
+
+- **PM → Contractor:** Tasks written to `queue.json` with priority. Direction files in `pm/direction/`.
+- **Contractor → PM:** Task status updates in `queue.json`. Deliverables in `contractor/submittals/`.
+- **PM → Owner:** Conversation in PM terminal session. Evaluated deliverables presented for approval.
+- **Owner → Either Agent:** Direct interaction via either ttyd terminal session at any time.
 
 ## Contents
 
 ```
 DEPLOYMENT/
-├── README.md                    ← You are here
-├── GC-OPERATIONAL.md            ← Compressed governance layer (~1,800 tokens)
-└── AGENTS/
-    ├── AGENT-PM.md              ← Project Manager Agent system prompt (~1,100 tokens)
-    ├── AGENT-CONTRACTOR.md      ← Contractor Agent system prompt (~1,200 tokens)
-    └── AGENT-WORKER.md          ← Worker Agent system prompt (~1,100 tokens)
+├── README.md                          ← You are here
+├── GC-OPERATIONAL.md                  ← Compressed governance (shared by all agents)
+├── pm/
+│   └── CLAUDE.md                      ← PM Agent configuration
+├── contractor/
+│   ├── CLAUDE.md                      ← Contractor Agent configuration
+│   └── .claude/
+│       └── agents/
+│           └── worker.md              ← Worker subagent definition
+└── templates/
+    └── queue.json                     ← Empty queue template
 ```
 
-## How to Use
+## Prerequisites
 
-### Each agent loads two files:
+- Claude Code installed
+- tmux installed
+- ttyd installed
+- Git (for worktrees)
 
-1. **GC-OPERATIONAL.md** — the governance layer (loaded by every agent)
-2. **Their role prompt** — from AGENTS/ (one per agent instance)
+## Setup
 
-Total system overhead per agent: ~2,900 tokens.
+```bash
+# From the general-conditions repo root:
 
-### The four roles:
+# 1. Create the shared project directory
+mkdir ../my-project
+mkdir -p ../my-project/pm/direction
+mkdir -p ../my-project/pm/evaluation
+mkdir -p ../my-project/contractor/submittals
+mkdir -p ../my-project/DIVISION_01
+mkdir -p ../my-project/SPECIFICATIONS
+mkdir -p ../my-project/DRAWINGS
+cp DEPLOYMENT/templates/queue.json ../my-project/queue.json
 
-| Role | File | Occupied By |
-|------|------|------------|
-| Owner | — (no prompt needed) | Human operator |
-| Project Manager | AGENT-PM.md | Agent with full project context |
-| Contractor | AGENT-CONTRACTOR.md | Agent with execution authority |
-| Worker | AGENT-WORKER.md | Agent(s) scoped to discrete tasks |
+# 2. Create worktrees
+git worktree add ../my-project-pm pm-branch
+git worktree add ../my-project-contractor contractor-branch
 
-### The critical boundary:
+# 3. Configure PM instance
+cp DEPLOYMENT/pm/CLAUDE.md ../my-project-pm/CLAUDE.md
+cp DEPLOYMENT/GC-OPERATIONAL.md ../my-project-pm/GC-OPERATIONAL.md
 
-The Contractor Agent **submits** work. The PM Agent **evaluates** it. This separation of execution from evaluation is the framework's core structural mechanism. Never collapse these two roles into one agent.
+# 4. Configure Contractor instance
+cp DEPLOYMENT/contractor/CLAUDE.md ../my-project-contractor/CLAUDE.md
+cp -r DEPLOYMENT/contractor/.claude ../my-project-contractor/
+cp DEPLOYMENT/GC-OPERATIONAL.md ../my-project-contractor/GC-OPERATIONAL.md
 
-## Role Mapping to Full Framework (GC-00)
+# 5. Start tmux sessions with ttyd
+tmux new-session -d -s pm "cd ../my-project-pm && claude"
+tmux new-session -d -s contractor "cd ../my-project-contractor && claude"
+ttyd -p 8080 tmux attach -t pm &
+ttyd -p 8081 tmux attach -t contractor &
+```
 
-The full hierarchy in GC-00 defines seven roles. This deployment compresses to four for operational testing:
+Open two browser windows:
+- **PM Agent:** `http://localhost:8080`
+- **Contractor Agent:** `http://localhost:8081`
 
-| Deployment Role | Collapses GC-00 Roles |
-|----------------|----------------------|
-| Owner | Owner (unchanged) |
-| PM Agent | Prime Consultant Agent + Sub-Consultant Agent(s) + Specialty Consultant Agent(s) |
-| Contractor Agent | Prime Contractor Agent + Project Superintendent Agent |
-| Worker Agent(s) | Worker Agent(s) (unchanged) |
+## Usage
 
-As the framework scales, the PM Agent can be split back into Prime Consultant and Sub-Consultant roles, and the Contractor Agent can be split into Prime Contractor and Superintendent roles. The compressed roles preserve all the behavioral obligations of their constituent GC-00 roles.
+1. **Talk to the PM.** Tell it what you want to build. The PM will capture your intent through conversational discovery (PROC-001).
 
-## What This Is NOT
+2. **Watch the PM queue work.** When the PM has enough information, it writes direction files and queues tasks to `queue.json`.
 
-- **Not a replacement for the General Conditions.** The GCs remain authoritative.
-- **Not a standalone system.** Projects still use Division 01 templates, SPEC-XXX files, and DRAWINGS/.
-- **Not the single-agent field guide.** CLAUDE.md at repository root serves that purpose. This directory is for multi-agent deployment.
+3. **Watch the Contractor execute.** The Contractor picks up tasks, spawns Workers, and writes deliverables to disk.
+
+4. **The PM evaluates.** Once a task is complete, the PM reads the deliverable, evaluates it, and presents it to you for approval.
+
+5. **You approve or redirect.** Approved deliverables are promoted to the project directory. Rejected deliverables get correction tasks queued.
+
+6. **The PM moves ahead.** While the Contractor works, the PM can continue the next process step with you — capturing more intent, framing the next specification, etc.
+
+7. **Intervene anytime.** Type into either terminal to correct, redirect, ask questions, or provide information.
+
+## Relationship to Full Framework
+
+The General Conditions (GC-00 through GC-13) remain the authoritative specification. GC-OPERATIONAL.md is a compressed extract for context window efficiency. The full GC documents govern when there is any ambiguity.
+
+The PROCESSES/ directory (PROC-001 through PROC-012) defines the detailed workflow. The PM Agent drives projects through this process arc.
 
 ## Status
 
-This is a test deployment configuration. It is being validated against real projects to determine where the compressed governance helps, where it creates friction, and where it breaks down. Findings from testing will inform updates to both this deployment layer and the full General Conditions.
+This is a test deployment configuration being validated against real projects.
